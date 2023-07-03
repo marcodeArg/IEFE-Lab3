@@ -36,7 +36,6 @@ namespace CAR
                 Application.Exit();
             }
             
-            objVendedores.CargarLista(lstVendedores);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,7 +45,8 @@ namespace CAR
             int desde = Convert.ToInt32(txtDesde.Text);
             int hasta = Convert.ToInt32(txtHasta.Text);
             int ventas = 0;
-
+            int ventasTotal = 0;
+            
             DataTable tablaVentas = objVentas.Get_Tabla();
 
 
@@ -68,10 +68,11 @@ namespace CAR
                         
                     }
                     serie.Points.AddXY(item.Text, ventas);
+                    ventasTotal = ventasTotal + ventas;
                     ventas = 0;
                 }
-
             }
+            toolStripStatusLabel1.Text = ventasTotal.ToString();
         }
     }
 }

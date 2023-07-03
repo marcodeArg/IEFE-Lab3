@@ -36,6 +36,8 @@ namespace CAR
             tabla.PrimaryKey = dc;
         }
 
+        
+
         public DataTable Get_Tabla()
         {
             return tabla;
